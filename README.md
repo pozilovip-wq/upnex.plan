@@ -1,2 +1,2 @@
-# upenx-call-
-Upnex Call-Center CRM is a simple, fast, and efficient web system built to help your team record and organize all incoming calls from students or clients. Instead of writing down names and numbers on paper, your staff can instantly store every call in one easy dashboard — right from their browser.
+This private website is created exclusively for Oyatillo and Nur to organize, manage, and track UPNeX’s daily and weekly content strategy.
+Here we keep all Instagram Stories, Instagram Video Posts, and Telegram posting schedules in one simple place, so both of us always know what to post, when to post, and who is responsible.
