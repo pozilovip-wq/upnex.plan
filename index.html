@@ -2,7 +2,7 @@
 <html lang="uz">
 <head>
   <meta charset="UTF-8" />
-  <title>UPNEX — Ichki Kontent Reja</title>
+  <title>UPNEX — Plan Maker</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     * {
@@ -11,19 +11,19 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0f172a;
+      background: #020617;
       color: #e5e7eb;
       display: flex;
       justify-content: center;
       padding: 24px;
     }
     .app {
-      max-width: 1100px;
+      max-width: 1200px;
       width: 100%;
       background: #020617;
       border-radius: 18px;
       padding: 20px 18px 28px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.4);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.45);
       border: 1px solid #1e293b;
     }
     h1 {
@@ -63,7 +63,7 @@
       display: grid;
       gap: 16px;
     }
-    @media (min-width: 900px) {
+    @media (min-width: 950px) {
       .grid {
         grid-template-columns: 2.1fr 1.4fr;
         align-items: flex-start;
@@ -156,22 +156,6 @@
       color: #fef9c3;
     }
 
-    .day-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-top: 6px;
-      margin-bottom: 2px;
-    }
-
-    .today-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: #38bdf8;
-      margin-left: 2px;
-    }
-
     .today-highlight {
       border-color: #38bdf8 !important;
       box-shadow: 0 0 0 1px rgba(56,189,248,0.35);
@@ -182,13 +166,106 @@
       font-size: 11px;
       color: #6b7280;
     }
+
+    /* PLAN MAKER */
+    .plan-grid {
+      display: grid;
+      gap: 16px;
+      margin-top: 18px;
+    }
+    @media (min-width: 950px) {
+      .plan-grid {
+        grid-template-columns: 1.4fr 2fr;
+      }
+    }
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    label {
+      font-size: 12px;
+      color: #9ca3af;
+      display: block;
+      margin-bottom: 2px;
+    }
+    input[type="text"],
+    input[type="time"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 7px 9px;
+      border-radius: 10px;
+      border: 1px solid #1f2937;
+      background: #020617;
+      color: #e5e7eb;
+      font-size: 13px;
+      resize: vertical;
+    }
+    textarea {
+      min-height: 72px;
+    }
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: 13px;
+      cursor: pointer;
+      background: #38bdf8;
+      color: #0f172a;
+      font-weight: 600;
+    }
+    button:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
+    .plan-item {
+      padding: 7px 9px;
+      border-radius: 12px;
+      border: 1px solid #1f2937;
+      margin-bottom: 6px;
+      font-size: 13px;
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: flex-start;
+      background: #020617;
+    }
+    .plan-item-main {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .plan-label-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      font-size: 11px;
+    }
+    .plan-time {
+      font-weight: 600;
+    }
+    .plan-delete {
+      background: transparent;
+      border-radius: 999px;
+      border: 1px solid #ef4444;
+      color: #fecaca;
+      padding: 3px 9px;
+      font-size: 11px;
+    }
+    .plan-empty {
+      font-size: 12px;
+      color: #6b7280;
+    }
   </style>
 </head>
 <body>
   <div class="app">
-    <h1>UPNEX — Ichki Kontent Reja</h1>
+    <h1>UPNEX — ICHKI KONTENT REJA & PLAN MAKER</h1>
     <div class="subtitle">
-      Faqat <b>Oyatillo</b> va <b>Nur</b> uchun ichki plan. Instagram + Telegram posting jadvali.
+      Faqat <b>Oyatillo</b> va <b>Nur</b> uchun ichki sayt. Instagram + Telegram posting jadvali va
+      qo‘shimcha kunlik reja yozib borish uchun.
     </div>
 
     <div class="tag-row">
@@ -199,9 +276,10 @@
       <span class="tag">Sunday — Fun / travel</span>
     </div>
 
+    <!-- MAIN SCHEDULE GRID -->
     <div class="grid">
-      <!-- LEFT SIDE -->
-      <div class="card" id="daily-card">
+      <!-- LEFT -->
+      <div class="card">
         <h2>KUNLIK INSTAGRAM STORY REJASI</h2>
         <small>(Har kuni — Monday to Sunday)</small>
 
@@ -213,45 +291,29 @@
         </div>
 
         <ul class="list">
-          <li><b>10:00 — Good Morning</b>  
-            — “Good morning from UPNeX”, coffee, office, NYC/Andijon vibe.
-          </li>
-          <li><b>12:00 — Telegramga yo‘naltirish</b>  
-            — “Bugungi TG postni o‘qing”, link / username bilan.
-          </li>
-          <li><b>15:00 — Info (study / visa / scholarship)</b>  
-            — 3 ta fakt, misollar, tezkor foydali ma’lumot.
-          </li>
-          <li><b>18:00 — Motivation</b>  
-            — NYC hayoting, talabalar hikoyasi, “Har kuni bir qadam”.
-          </li>
+          <li><b>10:00 — Good Morning</b> — “Good morning from UPNeX”, coffee, office, NYC/Andijon vibe.</li>
+          <li><b>12:00 — Telegramga yo‘naltirish</b> — “Bugungi TG postni o‘qing”, link / username bilan.</li>
+          <li><b>15:00 — Info (study / visa / scholarship)</b> — 3 ta fakt, misollar, tezkor foydali ma’lumot.</li>
+          <li><b>18:00 — Motivation</b> — NYC hayoting, talabalar hikoyasi, “Har kuni bir qadam”.</li>
         </ul>
 
         <hr style="border:0;border-top:1px solid #111827;margin:10px 0;" />
 
         <h2>HAFTALIK STORY QOIDALARI</h2>
         <ul class="list">
-          <li><b>Tuesday — NUR DAY</b>  
-            — Barcha storylar Nur tomonidan <b>UPNeX ofisidan</b> chiqadi (office, students, behind the scenes).
-          </li>
-          <li><b>Wednesday & Thursday — Q&amp;A</b>  
-            — Savol-javob box: followers savollari + javoblar (study, visa, scholarship).
-          </li>
-          <li><b>Friday — Faqat Information</b>  
-            — Hech qanday motivatsiya emas, faqat info: universitetlar, hujjatlar, visa tips.
-          </li>
-          <li><b>Other days</b>  
-            — Oddiy daily format, lekin xohlasang extra behind the scenes qo‘shish mumkin.
-          </li>
+          <li><b>Tuesday — NUR DAY</b> — Barcha storylar Nur tomonidan <b>UPNeX ofisidan</b> chiqadi (office, students, behind the scenes).</li>
+          <li><b>Wednesday & Thursday — Q&amp;A</b> — Savol-javob box: followers savollari + javoblar (study, visa, scholarship).</li>
+          <li><b>Friday — Faqat Information</b> — Hech qanday motivatsiya emas, faqat info: universitetlar, hujjatlar, visa tips.</li>
+          <li><b>Other days</b> — Oddiy daily format, lekin xohlasang extra behind the scenes qo‘shish mumkin.</li>
         </ul>
 
         <div class="note">
-          ⚙️ Agar reja o‘zgarsa, faqat HTML matnini o‘zgartirsang kifoya.
+          ⚙️ Agar asosiy reja o‘zgarsa, shu matnni HTML ichida ozgina tahrirlash kifoya.
         </div>
       </div>
 
-      <!-- RIGHT SIDE -->
-      <div class="card today-highlight" id="today-card">
+      <!-- RIGHT -->
+      <div class="card today-highlight" id="video-card">
         <h2>HAFTALIK VIDEO + TELEGRAM REJASI</h2>
         <small>Instagram feed videolari + Telegram posting</small>
 
@@ -304,24 +366,132 @@
 
         <h2 style="margin-top:16px;">TELEGRAM KUNLIK REJA</h2>
         <ul class="list">
-          <li><b>09:00 — Good morning</b>  
-            — Video yoki text: “Bugun ham imkoniyatlar kuni”.
-          </li>
-          <li><b>12:00 — Info post</b>  
-            — Universitet / scholarship / visa bo‘yicha asosiy post.
-          </li>
-          <li><b>15:00 — Video post</b>  
-            — 12:00 dagi postni tushuntiradigan video (real example bilan).
-          </li>
+          <li><b>09:00 — Good morning</b> — Video yoki text: “Bugun ham imkoniyatlar kuni”.</li>
+          <li><b>12:00 — Info post</b> — Universitet / scholarship / visa bo‘yicha asosiy post.</li>
+          <li><b>15:00 — Video post</b> — 12:00 dagi postni tushuntiradigan video (real example bilan).</li>
         </ul>
 
         <div class="note" id="today-note"></div>
       </div>
     </div>
+
+    <!-- WEEKLY WORK TARGETS -->
+    <div class="card" style="margin-top:18px;">
+      <h2>UPNEX — HAFTALIK ISH MAQSADLARI</h2>
+      <small>(Client, marketing, application, Zoom)</small>
+      <ul class="list">
+        <li><b>Client maqsad:</b> haftasiga <b>6 ta pullik client</b> (vaziyatga qarab taqsimlanadi: Oyatillo / Nur).</li>
+        <li><b>Marketing:</b>
+          <ul class="list">
+            <li>Instagram — har kuni stories + reja bo‘yicha feed videolar.</li>
+            <li>Telegram — kuniga 3 ta post (09:00, 12:00, 15:00).</li>
+            <li>Kamida 1–2 ta reel’ni reklama qilish (boost).</li>
+          </ul>
+        </li>
+        <li><b>Student application:</b>
+          <ul class="list">
+            <li>Haftada kamida <b>3–5 ta application</b>ni to‘liq tugatish.</li>
+            <li>Transcript, passport, CV, essaylarni tekshirish.</li>
+            <li>Visa uchun hujjatlar ro‘yxatini tayyorlab borish.</li>
+          </ul>
+        </li>
+        <li><b>Zoom / Live:</b>
+          <ul class="list">
+            <li>Haftada kamida <b>1–2 ta Zoom meeting</b> (F-1 visa, USA’da o‘qish, IELTSsiz imkoniyatlar).</li>
+            <li>Meetingdan keyin Telegram/Instagram’da qisqa xulosa post.</li>
+          </ul>
+        </li>
+        <li><b>Follow-up:</b>
+          <ul class="list">
+            <li>Har kuni — DM va WhatsApp’dagi lead’larni javobsiz qoldirmaslik.</li>
+            <li>“Siz hali o‘ylab ko‘rdingizmi?” tipidagi follow-up xabarlar.</li>
+          </ul>
+        </li>
+      </ul>
+      <div class="note">
+        📝 Bu raqamlarni har hafta o‘zgartirsa bo‘ladi — HTML matnini tahrirlab qo‘ysang kifoya.
+      </div>
+    </div>
+
+    <!-- PLAN MAKER SECTION -->
+    <div class="plan-grid">
+      <!-- FORM -->
+      <div class="card">
+        <h2>Custom Plan Maker</h2>
+        <small>Bugungi yoki boshqa kun uchun qo‘shimcha rejalarni yozib borish.</small>
+
+        <div class="form-row">
+          <div style="flex:1 1 120px;">
+            <label for="plan-day">Kun</label>
+            <select id="plan-day">
+              <option value="1">Dushanba (Mon)</option>
+              <option value="2">Seshanba (Tue)</option>
+              <option value="3">Chorshanba (Wed)</option>
+              <option value="4">Payshanba (Thu)</option>
+              <option value="5">Juma (Fri)</option>
+              <option value="6">Shanba (Sat)</option>
+              <option value="0">Yakshanba (Sun)</option>
+            </select>
+          </div>
+          <div style="flex:1 1 140px;">
+            <label for="plan-type">Platforma / tur</label>
+            <select id="plan-type">
+              <option>Instagram Story</option>
+              <option>Instagram Video</option>
+              <option>Telegram</option>
+              <option>Zoom / Meeting</option>
+              <option>Client work</option>
+              <option>Boshqa</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div style="flex:1 1 100px;">
+            <label for="plan-time">Vaqt</label>
+            <input id="plan-time" type="time" />
+          </div>
+          <div style="flex:3 1 180px;">
+            <label for="plan-text">Vazifa / reja matni</label>
+            <textarea id="plan-text" placeholder="Masalan: 'Nur bilan 3 ta yangi client bilan gaplashish'"></textarea>
+          </div>
+        </div>
+
+        <button id="add-plan-btn">Rejani qo‘shish</button>
+        <div class="note">
+          🔁 Hammasi avtomatik <b>browser localStorage</b> ga yoziladi. Sahifani yopib ochsang ham rejalar qoladi.
+        </div>
+      </div>
+
+      <!-- LIST -->
+      <div class="card">
+        <h2>Rejalar ro‘yxati</h2>
+        <small>Kun bo‘yicha ko‘rish va o‘chirish.</small>
+
+        <div class="form-row">
+          <div style="flex:1 1 140px;">
+            <label for="view-day">Qaysi kunni ko‘ramiz?</label>
+            <select id="view-day">
+              <option value="today">Bugungi kun</option>
+              <option value="1">Dushanba (Mon)</option>
+              <option value="2">Seshanba (Tue)</option>
+              <option value="3">Chorshanba (Wed)</option>
+              <option value="4">Payshanba (Thu)</option>
+              <option value="5">Juma (Fri)</option>
+              <option value="6">Shanba (Sat)</option>
+              <option value="0">Yakshanba (Sun)</option>
+              <option value="all">Barcha kunlar</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="plan-list"></div>
+      </div>
+    </div>
   </div>
 
   <script>
-    // Today highlight (based on user's local time)
+    // ===== TODAY HIGHLIGHT FOR TABLE =====
     (function () {
       const today = new Date().getDay(); // 0 = Sun, 1 = Mon ...
       const rows = document.querySelectorAll("[data-day]");
@@ -333,7 +503,180 @@
 
       const note = document.getElementById("today-note");
       const names = ["Yakshanba", "Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba"];
-      note.textContent = "Bugun: " + names[today] + ". Shunga qarab reja bo‘yicha post qilamiz.";
+      if (note) {
+        note.textContent = "Bugun: " + names[today] + ". Shunga qarab reja bo‘yicha post qilamiz.";
+      }
+
+      // default values in form/view
+      const planDaySelect = document.getElementById("plan-day");
+      const viewDaySelect = document.getElementById("view-day");
+      if (planDaySelect) planDaySelect.value = String(today);
+      if (viewDaySelect) viewDaySelect.value = "today";
+    })();
+
+    // ===== PLAN MAKER LOGIC (localStorage) =====
+    (function () {
+      const STORAGE_KEY = "upnex-plan-items-v1";
+
+      /** @type {{id:string, day:number, type:string, time:string, text:string, created:number}[]} */
+      let plans = [];
+
+      function loadPlans() {
+        try {
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if (!raw) return;
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) plans = parsed;
+        } catch (e) {
+          console.error("Failed to load plans", e);
+        }
+      }
+
+      function savePlans() {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(plans));
+        } catch (e) {
+          console.error("Failed to save plans", e);
+        }
+      }
+
+      function createId() {
+        return Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+      }
+
+      function formatDay(day) {
+        const map = {
+          0: "Yakshanba",
+          1: "Dushanba",
+          2: "Seshanba",
+          3: "Chorshanba",
+          4: "Payshanba",
+          5: "Juma",
+          6: "Shanba"
+        };
+        return map[day] || "";
+      }
+
+      function formatTime(t) {
+        if (!t) return "";
+        return t.slice(0, 5); // HH:MM
+      }
+
+      const planDay = document.getElementById("plan-day");
+      const planType = document.getElementById("plan-type");
+      const planTime = document.getElementById("plan-time");
+      const planText = document.getElementById("plan-text");
+      const addBtn = document.getElementById("add-plan-btn");
+      const viewDay = document.getElementById("view-day");
+      const planList = document.getElementById("plan-list");
+
+      function render() {
+        if (!planList) return;
+        planList.innerHTML = "";
+
+        let filterMode = viewDay.value;
+        const today = new Date().getDay();
+
+        let filtered = plans.slice().sort((a, b) => {
+          if (a.day !== b.day) return a.day - b.day;
+          return (a.time || "").localeCompare(b.time || "");
+        });
+
+        if (filterMode === "today") {
+          filtered = filtered.filter(p => p.day === today);
+        } else if (filterMode !== "all") {
+          const d = Number(filterMode);
+          filtered = filtered.filter(p => p.day === d);
+        }
+
+        if (!filtered.length) {
+          const empty = document.createElement("div");
+          empty.className = "plan-empty";
+          empty.textContent = "Hali reja qo‘shilmagan.";
+          planList.appendChild(empty);
+          return;
+        }
+
+        filtered.forEach(plan => {
+          const item = document.createElement("div");
+          item.className = "plan-item";
+
+          const main = document.createElement("div");
+          main.className = "plan-item-main";
+
+          const topRow = document.createElement("div");
+          topRow.className = "plan-label-row";
+
+          const daySpan = document.createElement("span");
+          daySpan.textContent = formatDay(plan.day);
+          daySpan.className = "badge";
+
+          const typeSpan = document.createElement("span");
+          typeSpan.textContent = plan.type;
+          typeSpan.className = "badge";
+
+          topRow.appendChild(daySpan);
+          topRow.appendChild(typeSpan);
+
+          const timeSpan = document.createElement("div");
+          timeSpan.className = "plan-time";
+          timeSpan.textContent = formatTime(plan.time) || "Vaqt belgilanmagan";
+
+          const textDiv = document.createElement("div");
+          textDiv.textContent = plan.text;
+
+          main.appendChild(topRow);
+          main.appendChild(timeSpan);
+          main.appendChild(textDiv);
+
+          const delBtn = document.createElement("button");
+          delBtn.className = "plan-delete";
+          delBtn.textContent = "O‘chirish";
+          delBtn.addEventListener("click", () => {
+            plans = plans.filter(p => p.id !== plan.id);
+            savePlans();
+            render();
+          });
+
+          item.appendChild(main);
+          item.appendChild(delBtn);
+          planList.appendChild(item);
+        });
+      }
+
+      if (addBtn) {
+        addBtn.addEventListener("click", () => {
+          const day = Number(planDay.value);
+          const type = planType.value.trim();
+          const time = planTime.value;
+          const text = planText.value.trim();
+
+          if (!text) {
+            alert("Reja matnini yozing.");
+            return;
+          }
+
+          plans.push({
+            id: createId(),
+            day,
+            type,
+            time,
+            text,
+            created: Date.now()
+          });
+          savePlans();
+          planText.value = "";
+          render();
+        });
+      }
+
+      if (viewDay) {
+        viewDay.addEventListener("change", render);
+      }
+
+      // initial load
+      loadPlans();
+      render();
     })();
   </script>
 </body>
