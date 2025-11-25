@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <title>UPNEX — Ichki Kontent Reja</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #0f172a;
+      color: #e5e7eb;
+      display: flex;
+      justify-content: center;
+      padding: 24px;
+    }
+    .app {
+      max-width: 1100px;
+      width: 100%;
+      background: #020617;
+      border-radius: 18px;
+      padding: 20px 18px 28px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.4);
+      border: 1px solid #1e293b;
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-size: 26px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .subtitle {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 18px;
+    }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid #1f2937;
+      background: #020617;
+      color: #9ca3af;
+    }
+    .tag.highlight {
+      border-color: #38bdf8;
+      color: #e0f2fe;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+    }
+
+    .grid {
+      display: grid;
+      gap: 16px;
+    }
+    @media (min-width: 900px) {
+      .grid {
+        grid-template-columns: 2.1fr 1.4fr;
+        align-items: flex-start;
+      }
+    }
+
+    .card {
+      background: #020617;
+      border-radius: 16px;
+      border: 1px solid #1f2937;
+      padding: 14px 14px 16px;
+    }
+    .card h2 {
+      margin: 0 0 10px;
+      font-size: 17px;
+    }
+    .card small {
+      display: block;
+      font-size: 12px;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .pill {
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: #020617;
+      border: 1px solid #1f2937;
+      color: #d1d5db;
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .list li {
+      margin-bottom: 4px;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+    .table th,
+    .table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid #111827;
+      text-align: left;
+      vertical-align: top;
+    }
+    .table th {
+      font-weight: 600;
+      color: #9ca3af;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #0b1120;
+      border: 1px solid #1f2937;
+      color: #e5e7eb;
+    }
+    .badge-nur {
+      border-color: #22c55e;
+      color: #bbf7d0;
+    }
+    .badge-info {
+      border-color: #38bdf8;
+      color: #bae6fd;
+    }
+    .badge-fun {
+      border-color: #facc15;
+      color: #fef9c3;
+    }
+
+    .day-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 6px;
+      margin-bottom: 2px;
+    }
+
+    .today-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #38bdf8;
+      margin-left: 2px;
+    }
+
+    .today-highlight {
+      border-color: #38bdf8 !important;
+      box-shadow: 0 0 0 1px rgba(56,189,248,0.35);
+    }
+
+    .note {
+      margin-top: 10px;
+      font-size: 11px;
+      color: #6b7280;
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <h1>UPNEX — Ichki Kontent Reja</h1>
+    <div class="subtitle">
+      Faqat <b>Oyatillo</b> va <b>Nur</b> uchun ichki plan. Instagram + Telegram posting jadvali.
+    </div>
+
+    <div class="tag-row">
+      <span class="tag highlight">Daily Story: 10 • 12 • 15 • 18</span>
+      <span class="tag">Tuesday — Nur day</span>
+      <span class="tag">Wed & Thu — Q&amp;A</span>
+      <span class="tag">Friday — Only info</span>
+      <span class="tag">Sunday — Fun / travel</span>
+    </div>
+
+    <div class="grid">
+      <!-- LEFT SIDE -->
+      <div class="card" id="daily-card">
+        <h2>KUNLIK INSTAGRAM STORY REJASI</h2>
+        <small>(Har kuni — Monday to Sunday)</small>
+
+        <div class="pill-row">
+          <span class="pill">10:00 — Good morning story</span>
+          <span class="pill">12:00 — Telegram story</span>
+          <span class="pill">15:00 — Study info story</span>
+          <span class="pill">18:00 — Motivation story</span>
+        </div>
+
+        <ul class="list">
+          <li><b>10:00 — Good Morning</b>  
+            — “Good morning from UPNeX”, coffee, office, NYC/Andijon vibe.
+          </li>
+          <li><b>12:00 — Telegramga yo‘naltirish</b>  
+            — “Bugungi TG postni o‘qing”, link / username bilan.
+          </li>
+          <li><b>15:00 — Info (study / visa / scholarship)</b>  
+            — 3 ta fakt, misollar, tezkor foydali ma’lumot.
+          </li>
+          <li><b>18:00 — Motivation</b>  
+            — NYC hayoting, talabalar hikoyasi, “Har kuni bir qadam”.
+          </li>
+        </ul>
+
+        <hr style="border:0;border-top:1px solid #111827;margin:10px 0;" />
+
+        <h2>HAFTALIK STORY QOIDALARI</h2>
+        <ul class="list">
+          <li><b>Tuesday — NUR DAY</b>  
+            — Barcha storylar Nur tomonidan <b>UPNeX ofisidan</b> chiqadi (office, students, behind the scenes).
+          </li>
+          <li><b>Wednesday & Thursday — Q&amp;A</b>  
+            — Savol-javob box: followers savollari + javoblar (study, visa, scholarship).
+          </li>
+          <li><b>Friday — Faqat Information</b>  
+            — Hech qanday motivatsiya emas, faqat info: universitetlar, hujjatlar, visa tips.
+          </li>
+          <li><b>Other days</b>  
+            — Oddiy daily format, lekin xohlasang extra behind the scenes qo‘shish mumkin.
+          </li>
+        </ul>
+
+        <div class="note">
+          ⚙️ Agar reja o‘zgarsa, faqat HTML matnini o‘zgartirsang kifoya.
+        </div>
+      </div>
+
+      <!-- RIGHT SIDE -->
+      <div class="card today-highlight" id="today-card">
+        <h2>HAFTALIK VIDEO + TELEGRAM REJASI</h2>
+        <small>Instagram feed videolari + Telegram posting</small>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Kun</th>
+              <th>Instagram video</th>
+              <th>Maxsus belgi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr data-day="1">
+              <td>Dushanba (Mon)</td>
+              <td>12:00 — <b>Information video</b> (study, visa, scholarship)</td>
+              <td><span class="badge badge-info">Info</span></td>
+            </tr>
+            <tr data-day="2">
+              <td>Seshanba (Tue)</td>
+              <td>12:00 — <b>Nur office video</b> (UPNeX office, students)</td>
+              <td><span class="badge badge-nur">Nur day</span></td>
+            </tr>
+            <tr data-day="3">
+              <td>Chorshanba (Wed)</td>
+              <td>12:00 — <b>Information video</b> (tips, hujjatlar, examples)</td>
+              <td><span class="badge badge-info">Info + Q&amp;A story</span></td>
+            </tr>
+            <tr data-day="4">
+              <td>Payshanba (Thu)</td>
+              <td>— (optional video)</td>
+              <td><span class="badge badge-info">Q&amp;A story</span></td>
+            </tr>
+            <tr data-day="5">
+              <td>Juma (Fri)</td>
+              <td>18:00 — <b>Team / strong info video</b></td>
+              <td><span class="badge badge-info">Only info stories</span></td>
+            </tr>
+            <tr data-day="6">
+              <td>Shanba (Sat)</td>
+              <td>— (optional)</td>
+              <td><span class="badge">Free plan</span></td>
+            </tr>
+            <tr data-day="0">
+              <td>Yakshanba (Sun)</td>
+              <td>Any time — <b>Fun / travel / entertainment video</b></td>
+              <td><span class="badge badge-fun">Fun day</span></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h2 style="margin-top:16px;">TELEGRAM KUNLIK REJA</h2>
+        <ul class="list">
+          <li><b>09:00 — Good morning</b>  
+            — Video yoki text: “Bugun ham imkoniyatlar kuni”.
+          </li>
+          <li><b>12:00 — Info post</b>  
+            — Universitet / scholarship / visa bo‘yicha asosiy post.
+          </li>
+          <li><b>15:00 — Video post</b>  
+            — 12:00 dagi postni tushuntiradigan video (real example bilan).
+          </li>
+        </ul>
+
+        <div class="note" id="today-note"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Today highlight (based on user's local time)
+    (function () {
+      const today = new Date().getDay(); // 0 = Sun, 1 = Mon ...
+      const rows = document.querySelectorAll("[data-day]");
+      rows.forEach(row => {
+        if (parseInt(row.getAttribute("data-day"), 10) === today) {
+          row.classList.add("today-highlight");
+        }
+      });
+
+      const note = document.getElementById("today-note");
+      const names = ["Yakshanba", "Dushanba", "Seshanba", "Chorshanba", "Payshanba", "Juma", "Shanba"];
+      note.textContent = "Bugun: " + names[today] + ". Shunga qarab reja bo‘yicha post qilamiz.";
+    })();
+  </script>
+</body>
+</html>
